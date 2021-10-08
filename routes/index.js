@@ -1,15 +1,6 @@
-const router = require('express').Router()
-
-// DEMO Test
-// const Cryptocurrency = require('../models/Cryptocurrency.model')
-const Api = require('../services/CryptosHandler')
-const CryptosApi = new Api()
-
-router.get('/', (req, res, next) => {
-  CryptosApi.getAllCryptos().then((allCoins) => {
-    console.log('Data', allCoins.data)
-    res.status(201).json({ coin: allCoins.data })
-  })
-})
-
-module.exports = router
+module.exports = (app) => {
+  app.use('/api', require('./cryptocurrency.routes'))
+  app.use('/api/user', require('./user.routes'))
+  app.use('/api/auth', require('./auth.routes'))
+  app.use('/api/news', require('./news.routes'))
+}
