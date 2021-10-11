@@ -1,28 +1,14 @@
-const Api = require('../services/CryptosHandler')
-const CryptosApi = new Api()
-const CryptoPost = require('../models/Cryptocurrency.model')
+const Api = require('../services/Cryptocurrency.handler')
+const CryptocurrencyApi = new Api()
 
 exports.getAllCryptos = (req, res) => {
-  CryptosApi.getAllCryptos().then((coins) => {
+  CryptocurrencyApi.getAllCryptos().then((coins) => {
     res.status(201).json(coins.data)
   })
 }
 
-exports.postAllCryptos = (req, res) => {
-  const post = new CryptoPost({
-    name: req.body.name,
-    image: req.body.image
+exports.getACrypto = (req, res) => {
+  CryptocurrencyApi.getACrypto().then((coin) => {
+    res.status(201).json(coin.data)
   })
-
-  console.log(req.body)
-
-  post
-    .save()
-    .then((data) => {
-      res.json(data)
-      console.log(data)
-    })
-    .catch(err => {
-      res.json(err)
-    })
 }

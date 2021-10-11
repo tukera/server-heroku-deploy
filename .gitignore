@@ -8,3 +8,6 @@ npm-debug.log
 .env
 
 .vscode/
+requests/get_all_coins.rest
+requests/get_all_news.rest
+requests/get_coin.rest
