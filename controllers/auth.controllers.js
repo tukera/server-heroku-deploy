@@ -6,7 +6,6 @@ const saltRounds = 10
 
 exports.signup = (req, res) => {
   const { email, password, name } = req.body
-  console.log(req.body)
 
   // Check if email or password or name are provided as empty string
   if (email === '' || password === '' || name === '') {
@@ -107,7 +106,7 @@ exports.login = (req, res) => {
         res.status(401).json({ message: 'Unable to authenticate the user' })
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => res.status(500).json({ message: "Internal Server Error" }))
 }
 
 exports.verify = (req, res) => {
