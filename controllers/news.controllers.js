@@ -1,4 +1,4 @@
-const NewsAPI = require('../services/NewsHandler')
+const NewsAPI = require('../services/News.handler')
 const newsApi = new NewsAPI()
 
 exports.getAllNews = (req, res) => {
