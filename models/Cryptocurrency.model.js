@@ -3,6 +3,10 @@ const { Schema, model } = mongoose
 
 const CryptocurrencySchema = new Schema(
   {
+    userFrom: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    },
     symbol: String,
     name: String,
     image: String,

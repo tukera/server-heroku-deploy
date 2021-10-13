@@ -1,7 +1,6 @@
 const User = require('../models/User.model')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-
 const saltRounds = 10
 
 exports.signup = (req, res) => {
@@ -23,12 +22,10 @@ exports.signup = (req, res) => {
   // Use regex to validate the password format
   const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/
   if (!passwordRegex.test(password)) {
-    res
-      .status(400)
-      .json({
-        message:
-          'Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.'
-      })
+    res.status(400).json({
+      message:
+        'Password must have at least 6 characters and contain at least one number, one lowercase and one uppercase letter.'
+    })
     return
   }
 
@@ -106,7 +103,7 @@ exports.login = (req, res) => {
         res.status(401).json({ message: 'Unable to authenticate the user' })
       }
     })
-    .catch(err => res.status(500).json({ message: "Internal Server Error" }))
+    .catch((err) => res.status(500).json({ message: 'Internal Server Error' }))
 }
 
 exports.verify = (req, res) => {

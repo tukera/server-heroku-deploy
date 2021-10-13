@@ -3,6 +3,6 @@ const cryptocurrenciesController = require('../controllers/cryptocurrency.contro
 
 router.get('/', cryptocurrenciesController.getAllCryptos)
 router.get('/coins/:id', cryptocurrenciesController.getACrypto)
-// router.post('/', cryptocurrenciesController.postAllCryptos)
+router.post('/favorite', cryptocurrenciesController.postFav)
 
 module.exports = router
