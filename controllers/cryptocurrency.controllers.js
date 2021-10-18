@@ -20,10 +20,7 @@ exports.addFavorite = (req, res) => {
     id
   } = req.body.cryptocurrency)
 
-  // console.log('idToCheck', id)
-  // console.log('QUERY', query)
   Cryptocurrency.findOne({ id: id }).then((currency) => {
-    // console.log('cryptocurrency', currency)
     if (!currency) {
       Cryptocurrency.create(query).then((result) => {
         User.findByIdAndUpdate(
