@@ -1,8 +1,10 @@
 const router = require('express').Router()
-const cryptocurrenciesController = require('../controllers/cryptocurrency.controllers')
+const {
+  addFavorite,
+  deleteFavorite
+} = require('../controllers/cryptocurrency.controllers')
 
-router.get('/', cryptocurrenciesController.getAllCryptos)
-// router.get('/coins/:id', cryptocurrenciesController.getACrypto)
-// router.post('/favorite', cryptocurrenciesController.postFav)
+router.post('/add-favorite', addFavorite)
+router.post('/delete-favorite', deleteFavorite)
 
 module.exports = router

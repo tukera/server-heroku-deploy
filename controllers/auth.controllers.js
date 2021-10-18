@@ -109,9 +109,10 @@ exports.login = (req, res) => {
 exports.verify = (req, res) => {
   // If JWT token is valid the payload gets decoded by the
   // isAuthenticated middleware and made available on `req.payload`
-  console.log('req.payload', req.payload)
-  console.log(`REQHEADERS`, req.headers)
-  console.log('ID', req.payload._id)
+  // console.log('req.payload', req.payload)
+  // console.log(`REQHEADERS`, req.headers)
+  // console.log('ID', req.payload._id)
+  console.log('====================', req.body)
   User.findById(req.payload._id)
     .populate('cryptocurrency')
     .then((response) => {
